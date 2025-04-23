@@ -1,0 +1,63 @@
+/* Header styles */
+.navbar {
+    background-color: #000;
+    padding: 15px 0;
+  }
+  
+  .brand {
+    padding: 0;
+  }
+  
+  .navLink {
+    color: #fff !important;
+    margin: 0 10px;
+  }
+  
+  .navLink:hover {
+    color: #6db33f !important;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    align-items: center;
+  }
+  
+  .openAccountBtn {
+    background-color: #6db33f;
+    border-color: #6db33f;
+    color: white;
+    margin-right: 10px;
+    border-radius: 4px;
+  }
+  
+  .loginBtn {
+    background-color: transparent;
+    border-color: #fff;
+    color: white;
+    border-radius: 4px;
+  }
+  
+  .toggler {
+    border-color: rgba(255,255,255,0.5);
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 991.98px) {
+    .buttonGroup {
+      margin-top: 15px;
+    }
+  }
+  
+  @media (max-width: 575.98px) {
+    .buttonGroup {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+    
+    .openAccountBtn, .loginBtn {
+      width: 100%;
+      margin-bottom: 8px;
+      margin-right: 0;
+    }
+  }
