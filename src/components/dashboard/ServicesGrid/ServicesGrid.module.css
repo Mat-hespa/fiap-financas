@@ -1,0 +1,28 @@
+/* /components/dashboard/ServicesGrid/ServicesGrid.module.css */
+.serviceItem {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s;
+    height: 100%;
+    color: #333;
+  }
+  
+  .serviceItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border-color: #6db33f;
+  }
+  
+  .serviceIcon {
+    font-size: 2.2rem;
+    color: #6db33f;
+    margin-bottom: 15px;
+    display: block;
+  }
+  
+  .serviceName {
+    font-weight: 500;
+  }

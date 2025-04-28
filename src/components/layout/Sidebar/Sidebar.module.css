@@ -1,0 +1,41 @@
+/* /components/layout/Sidebar/Sidebar.module.css */
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.sidebarItem:hover {
+  background-color: rgba(109, 179, 63, 0.1);
+  color: #6db33f;
+}
+
+.sidebarItem.active {
+  background-color: rgba(109, 179, 63, 0.15);
+  color: #6db33f;
+  font-weight: 600;
+}
+
+/* Sidebar mobile - Offcanvas */
+:global(.offcanvas) .sidebarItem {
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-radius: 0;
+  margin-bottom: 0;
+  padding: 15px 10px;
+}
+
+:global(.offcanvas) .sidebarItem:hover {
+  background-color: rgba(255,255,255,0.1);
+  color: #6db33f;
+}
+
+:global(.offcanvas) .sidebarItem.active {
+  background-color: rgba(109, 179, 63, 0.2);
+  color: #6db33f;
+}

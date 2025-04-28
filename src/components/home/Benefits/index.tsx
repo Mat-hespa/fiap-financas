@@ -1,3 +1,4 @@
+// /components/home/Benefits/index.tsx
 'use client';
 
 import React from 'react';
@@ -37,14 +38,14 @@ export const Benefits: React.FC = () => {
   ];
 
   return (
-    <section className={styles.benefitsSection}>
+    <section className="py-5 bg-light">
       <Container>
-        <h2 className={styles.sectionTitle}>Vantagens do nosso banco:</h2>
+        <h2 className="text-center mb-5 fw-bold">Vantagens do nosso banco:</h2>
         
         <Row>
           {benefits.map((benefit, index) => (
-            <Col md={6} lg={3} key={index} className={styles.benefitCol}>
-              <div className={styles.benefitCard}>
+            <Col md={6} lg={3} key={index} className="mb-4">
+              <div className={`${styles.benefitCard} h-100`}>
                 <FontAwesomeIcon 
                   icon={benefit.icon} 
                   className={styles.benefitIcon} 
@@ -59,3 +60,5 @@ export const Benefits: React.FC = () => {
     </section>
   );
 };
+
+export default Benefits;

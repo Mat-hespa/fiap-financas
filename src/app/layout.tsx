@@ -1,8 +1,7 @@
+// app/layout.tsx
 import './globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import type { Metadata } from 'next';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'ByteBank - Liberdade financeira para você',
@@ -20,9 +19,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
       </head>
       <body>
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );

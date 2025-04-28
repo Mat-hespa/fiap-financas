@@ -1,0 +1,41 @@
+/* /components/layout/Header/Header.module.css */
+.navbar {
+  padding: 15px 0;
+}
+
+.openAccountBtn {
+  background-color: #6db33f !important; /* Uso forçado para sobreescrever a cor do botao do bootstrap */
+  border-color: #6db33f !important; /* Uso forçado para sobreescrever a cor do botao do bootstrap */
+}
+
+.openAccountBtn:hover,
+.openAccountBtn:focus,
+.openAccountBtn:active {
+  background-color: #5a9335 !important;
+  border-color: #5a9335 !important;
+}
+
+@media (max-width: 991.98px) {
+  .navbarCollapse :global(.me-auto) {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .navbarCollapse :global(.nav-link) {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar :global(.navbar-collapse .d-flex) {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar :global(.btn) {
+    width: 100%;
+    margin-bottom: 8px;
+    margin-right: 0 !important;
+  }
+}

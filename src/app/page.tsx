@@ -1,13 +1,20 @@
+// app/page.tsx
 'use client';
 
-import { Hero } from '@/components/Hero';
-import { Benefits } from '@/components/Benefits';
+import { Header } from '@/components/layout/Header/index';
+import { Footer } from '@/components/layout/Footer/index';
+import { Hero } from '@/components/home/Hero/index';
+import { Benefits } from '@/components/home/Benefits/index';
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <Benefits />
-    </main>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <Benefits />
+      </main>
+      <Footer />
+    </>
   );
 }

@@ -1,0 +1,52 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Joana Fonseca Gomes",
+        "accountNumber": "00123-4",
+        "balance": 2500.00
+      }
+    ],
+    "transactions": [
+      {
+        "id": 1,
+        "userId": 1,
+        "type": "deposit",
+        "description": "Depósito",
+        "amount": 150,
+        "date": "2022-11-18T10:30:00Z"
+      },
+      {
+        "id": 2,
+        "userId": 1,
+        "type": "deposit",
+        "description": "Depósito",
+        "amount": 100,
+        "date": "2022-11-21T14:15:00Z"
+      },
+      {
+        "id": 3,
+        "userId": 1,
+        "type": "deposit",
+        "description": "Depósito",
+        "amount": 50,
+        "date": "2022-11-21T16:45:00Z"
+      },
+      {
+        "id": 4,
+        "userId": 1,
+        "type": "transfer",
+        "description": "Transferência",
+        "amount": -500,
+        "date": "2022-11-21T18:20:00Z"
+      }
+    ],
+    "services": [
+      {"id": 1, "name": "Empréstimo", "icon": "money-bill"},
+      {"id": 2, "name": "Meus cartões", "icon": "credit-card"},
+      {"id": 3, "name": "Doações", "icon": "heart"},
+      {"id": 4, "name": "Pix", "icon": "exchange-alt"},
+      {"id": 5, "name": "Seguros", "icon": "shield-alt"},
+      {"id": 6, "name": "Crédito celular", "icon": "mobile-alt"}
+    ]
+  }

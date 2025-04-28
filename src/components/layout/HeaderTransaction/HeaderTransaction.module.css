@@ -1,0 +1,12 @@
+/* /components/layout/HeaderTransaction/HeaderTransaction.module.css */
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6db33f 0%, #5a9335 100%);
+  color: white;
+  font-weight: 500;
+}

@@ -1,3 +1,4 @@
+// /components/home/Hero/index.tsx
 'use client';
 
 import React from 'react';
@@ -7,23 +8,19 @@ import styles from './Hero.module.css';
 
 export const Hero: React.FC = () => {
   return (
-    <section className={styles.heroSection}>
+    <section className="bg-dark text-white py-5">
       <Container>
         <Row className="align-items-center">
-          {/* Texto à esquerda no desktop, acima da imagem em mobile */}
-          <Col lg={6} className={styles.heroText}>
-            <h1 className={styles.heroTitle}>
+          <Col lg={6} className={`mb-4 mb-lg-0 ${styles.heroTextCol}`}>
+            <h1 className={`${styles.heroTitle} mb-3`}>
               Experimente mais liberdade no controle da sua vida financeira.
             </h1>
-            <h2 className={styles.heroSubtitle}>
+            <h2 className="fs-4 mb-4 fw-light">
               Crie sua conta com a gente!
             </h2>
-            <div className={styles.heroButtons}>
-            </div>
           </Col>
           
-          {/* Imagem à direita no desktop, abaixo do texto em mobile */}
-          <Col lg={6} className={styles.heroImage}>
+          <Col lg={6}>
             <div className={styles.imageContainer}>
               <Image
                 src="/images/banner.svg"
@@ -39,3 +36,5 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
+
+export default Hero;

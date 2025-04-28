@@ -1,0 +1,32 @@
+/* /components/dashboard/TransactionHistory/TransactionHistory.module.css */
+.transactionMonth {
+    color: #6db33f;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  
+  .transactionItem {
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .transactionItem:last-child {
+    border-bottom: none;
+  }
+  
+  .transactionDescription {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 3px;
+  }
+  
+  .transactionAmount {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  
+  .transactionDate {
+    color: #888;
+    font-size: 0.8rem;
+  }
