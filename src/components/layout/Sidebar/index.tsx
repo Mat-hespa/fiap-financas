@@ -1,4 +1,3 @@
-// /components/layout/Sidebar/index.tsx
 'use client';
 
 import React from 'react';
@@ -14,6 +13,8 @@ export const Sidebar: React.FC = () => {
   
   const menuItems = [
     { name: 'Início', path: '/home', icon: 'house' },
+    { name: 'Transações', path: '/transactions', icon: 'journal-text' },
+    { name: 'Nova Transação', path: '/transactions/new', icon: 'plus-circle' },
     { name: 'Transferências', path: '/home/transferencias', icon: 'arrow-left-right' },
     { name: 'Investimentos', path: '/home/investimentos', icon: 'graph-up-arrow' },
     { name: 'Serviços', path: '/home/servicos', icon: 'grid' },
@@ -40,8 +41,10 @@ export const Sidebar: React.FC = () => {
   return (
     <>
       {/* Versão desktop do sidebar - sempre visível em telas grandes */}
-      <div className={`${styles.desktopSidebar} d-none d-lg-block bg-white rounded shadow-sm p-3 h-100`}>
-        {renderMenuItems()}
+      <div className="card shadow-sm h-100 d-none d-lg-block">
+        <div className="card-body p-2">
+          {renderMenuItems()}
+        </div>
       </div>
       
       {/* Versão mobile do sidebar - aparece como menu deslizante */}

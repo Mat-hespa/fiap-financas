@@ -1,3 +1,4 @@
+// types/index.ts
 export interface User {
   id: number;
   name: string;
@@ -6,9 +7,9 @@ export interface User {
 }
 
 export interface Transaction {
-  id: number;
+  id: string;
   userId: number;
-  type: "deposit" | "transfer" | "payment";
+  type: string;
   description: string;
   amount: number;
   date: string;

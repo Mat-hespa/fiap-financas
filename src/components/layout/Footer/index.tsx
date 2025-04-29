@@ -1,10 +1,7 @@
-// /components/layout/Footer/index.tsx
 'use client';
 
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faWhatsapp, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
 import styles from './Footer.module.css';
 
@@ -47,9 +44,15 @@ export const Footer: React.FC = () => {
               </div>
               
               <div className={styles.socialIcons}>
-                <a href="#" className="me-3"><FontAwesomeIcon icon={faInstagram} size="lg" /></a>
-                <a href="#" className="me-3"><FontAwesomeIcon icon={faWhatsapp} size="lg" /></a>
-                <a href="#"><FontAwesomeIcon icon={faYoutube} size="lg" /></a>
+                <a href="#" className="me-3">
+                  <i className="bi bi-instagram fs-4"></i>
+                </a>
+                <a href="#" className="me-3">
+                  <i className="bi bi-whatsapp fs-4"></i>
+                </a>
+                <a href="#">
+                  <i className="bi bi-youtube fs-4"></i>
+                </a>
               </div>
             </div>
           </Col>

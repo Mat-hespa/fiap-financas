@@ -1,52 +1,92 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "name": "Joana Fonseca Gomes",
-        "accountNumber": "00123-4",
-        "balance": 2500.00
-      }
-    ],
-    "transactions": [
-      {
-        "id": 1,
-        "userId": 1,
-        "type": "deposit",
-        "description": "Depósito",
-        "amount": 150,
-        "date": "2022-11-18T10:30:00Z"
-      },
-      {
-        "id": 2,
-        "userId": 1,
-        "type": "deposit",
-        "description": "Depósito",
-        "amount": 100,
-        "date": "2022-11-21T14:15:00Z"
-      },
-      {
-        "id": 3,
-        "userId": 1,
-        "type": "deposit",
-        "description": "Depósito",
-        "amount": 50,
-        "date": "2022-11-21T16:45:00Z"
-      },
-      {
-        "id": 4,
-        "userId": 1,
-        "type": "transfer",
-        "description": "Transferência",
-        "amount": -500,
-        "date": "2022-11-21T18:20:00Z"
-      }
-    ],
-    "services": [
-      {"id": 1, "name": "Empréstimo", "icon": "money-bill"},
-      {"id": 2, "name": "Meus cartões", "icon": "credit-card"},
-      {"id": 3, "name": "Doações", "icon": "heart"},
-      {"id": 4, "name": "Pix", "icon": "exchange-alt"},
-      {"id": 5, "name": "Seguros", "icon": "shield-alt"},
-      {"id": 6, "name": "Crédito celular", "icon": "mobile-alt"}
-    ]
-  }
+  "users": [
+    {
+      "id": "1",
+      "name": "Joana Fonseca Gomes",
+      "accountNumber": "00123-4",
+      "balance": 2500
+    }
+  ],
+  "transactions": [
+    {
+      "id": "4",
+      "userId": 1,
+      "type": "transfer",
+      "description": "Transferência",
+      "amount": -500,
+      "date": "2022-11-21T18:20:00Z"
+    },
+    {
+      "id": "ec46",
+      "userId": 1,
+      "type": "transfer",
+      "description": "teste 29",
+      "amount": -200,
+      "date": "2025-04-29T00:00:00.000Z"
+    },
+    {
+      "id": "eb25",
+      "userId": 1,
+      "type": "deposit",
+      "description": "deposito teste",
+      "amount": 20000,
+      "date": "2025-04-29T00:00:00.000Z"
+    },
+    {
+      "id": "23f1",
+      "userId": 1,
+      "type": "deposit",
+      "description": "deposito teste 2",
+      "amount": 1400,
+      "date": "2025-04-29T00:00:00.000Z"
+    },
+    {
+      "id": "e1aa",
+      "userId": 1,
+      "type": "transfer",
+      "description": "transferencia para ser editada",
+      "amount": -16000,
+      "date": "2025-04-29T00:00:00.000Z"
+    },
+    {
+      "id": "80ea",
+      "userId": 1,
+      "type": "deposit",
+      "description": "deposito para ser editado",
+      "amount": 2500,
+      "date": "2025-04-29T00:00:00.000Z"
+    }
+  ],
+  "services": [
+    {
+      "id": "1",
+      "name": "Empréstimo",
+      "icon": "cash-coin"
+    },
+    {
+      "id": "2",
+      "name": "Meus cartões",
+      "icon": "credit-card"
+    },
+    {
+      "id": "3",
+      "name": "Doações",
+      "icon": "heart"
+    },
+    {
+      "id": "4",
+      "name": "Pix",
+      "icon": "cash-stack"
+    },
+    {
+      "id": "5",
+      "name": "Seguros",
+      "icon": "shield-check"
+    },
+    {
+      "id": "6",
+      "name": "Crédito celular",
+      "icon": "phone"
+    }
+  ]
+}

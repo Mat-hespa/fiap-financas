@@ -17,7 +17,7 @@ async function HomePage() {
   const user = await getUser(userId);
   const transactions = await getTransactions(userId);
   const services = await getServices();
-  
+
   return (
     <>
       <HeaderTransaction user={user} />
@@ -29,8 +29,13 @@ async function HomePage() {
           <div className="col-lg-9">
             <div className="row">
               <div className="col-lg-8">
-                <AccountSummary user={user} />
-                <ServicesGrid services={services} />
+                <div className='mb-4'>
+                  <AccountSummary user={user}/>
+                </div>
+                {/* Add mb-4 mb-lg-0 class to add bottom margin on mobile only */}
+                <div className="mb-4 mb-lg-0">
+                  <ServicesGrid services={services} />
+                </div>
               </div>
               <div className="col-lg-4">
                 <TransactionHistory transactions={transactions} />

@@ -1,14 +1,11 @@
-// /components/home/Benefits/index.tsx
 'use client';
 
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGift, faMoneyBillWave, faStar, faLaptop } from '@fortawesome/free-solid-svg-icons';
 import styles from './Benefits.module.css';
 
 interface Benefit {
-  icon: any;
+  icon: string;
   title: string;
   description: string;
 }
@@ -16,22 +13,22 @@ interface Benefit {
 export const Benefits: React.FC = () => {
   const benefits: Benefit[] = [
     {
-      icon: faGift,
+      icon: "bi-gift",
       title: "Conta e cartão gratuitos",
       description: "Isso mesmo, nossa conta é digital, sem custo fixo e mais que isso: sem tarifa de manutenção."
     },
     {
-      icon: faMoneyBillWave,
+      icon: "bi-cash-coin",
       title: "Saques sem custo",
       description: "Você pode sacar gratuitamente 4x por mês de qualquer Banco 24h."
     },
     {
-      icon: faStar,
+      icon: "bi-star",
       title: "Programa de pontos",
       description: "Você pode acumular pontos com suas compras no crédito sem pagar mensalidade!"
     },
     {
-      icon: faLaptop,
+      icon: "bi-laptop",
       title: "Seguro Dispositivos",
       description: "Seus dispositivos móveis (computador e laptop) protegidos por uma mensalidade simbólica."
     }
@@ -46,10 +43,7 @@ export const Benefits: React.FC = () => {
           {benefits.map((benefit, index) => (
             <Col md={6} lg={3} key={index} className="mb-4">
               <div className={`${styles.benefitCard} h-100`}>
-                <FontAwesomeIcon 
-                  icon={benefit.icon} 
-                  className={styles.benefitIcon} 
-                />
+                <i className={`bi ${benefit.icon} ${styles.benefitIcon}`}></i>
                 <h3 className={styles.benefitTitle}>{benefit.title}</h3>
                 <p className={styles.benefitDescription}>{benefit.description}</p>
               </div>
