@@ -1,23 +1,23 @@
 // Remove 'use client' - pages are server components by default
 import { EditTransaction } from './EditTransaction';
-import { getTransactions, getUser } from '@/lib/api';
+import { getTransactionById, getUser } from '@/lib/api';
 import { notFound } from 'next/navigation';
 
 export default async function EditTransactionPage({ params }: { params: { id: string } }) {
   try {
-    const userId = 1; // Assuming a fixed user for this example
+    const userId = 1;
     const userData = await getUser(userId);
-    const transactions = await getTransactions(userId);
-    const transaction = transactions.find(t => t.id === params.id);
+    
+    // Usar a função específica para buscar uma transação por ID
+    const transaction = await getTransactionById(params.id);
     
     if (!transaction) {
+      console.error(`Transaction with ID ${params.id} not found`);
       notFound();
     }
 
-    // Format the date for the form
     const formattedDate = new Date(transaction.date).toISOString().split('T')[0];
     
-    // Pass pre-fetched data to the client component
     return <EditTransaction 
       transaction={transaction} 
       user={userData}

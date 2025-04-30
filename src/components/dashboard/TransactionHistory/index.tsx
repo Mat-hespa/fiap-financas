@@ -1,4 +1,3 @@
-// /components/dashboard/TransactionHistory/index.tsx
 'use client';
 
 import React from 'react';

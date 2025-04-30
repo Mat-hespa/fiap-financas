@@ -1,4 +1,3 @@
-// /components/dashboard/AccountSummary/index.tsx
 'use client';
 
 import React, { useState } from 'react';

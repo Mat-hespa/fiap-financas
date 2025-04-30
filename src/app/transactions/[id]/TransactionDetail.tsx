@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { HeaderTransaction } from '@/components/layout/HeaderTransaction';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { SidebarProvider } from '@/contexts/SidebarContext';
+import { formatCurrency, formatDate } from '@/utils/formatters';
 
-// Now accepts preloaded data instead of fetching it
 export function TransactionDetail({ 
   transaction, 
   user 
@@ -16,18 +16,6 @@ export function TransactionDetail({
   user: User 
 }) {
   const router = useRouter();
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('pt-BR') + ' ' + date.toLocaleTimeString('pt-BR');
-  };
-
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    }).format(Math.abs(amount));
-  };
 
   return (
     <SidebarProvider>

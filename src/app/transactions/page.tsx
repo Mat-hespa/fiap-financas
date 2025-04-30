@@ -8,6 +8,7 @@ import Link from "next/link";
 import { HeaderTransaction } from "@/components/layout/HeaderTransaction";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { SidebarProvider } from "@/contexts/SidebarContext";
+import { formatCurrency, formatDate } from "@/utils/formatters";
 
 export default function TransactionsPage() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -18,19 +19,15 @@ export default function TransactionsPage() {
   const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
 
-  // Check for mobile viewport
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
 
-    // Initial check
     checkIfMobile();
 
-    // Listen for resize events
     window.addEventListener("resize", checkIfMobile);
 
-    // Cleanup
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
@@ -61,20 +58,7 @@ export default function TransactionsPage() {
       }
     }
   };
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("pt-BR");
-  };
-
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(Math.abs(amount));
-  };
-
-  // Filter transactions
+  
   const filteredTransactions = transactions.filter((item) => {
     const matchesType = typeFilter === "all" || item.type === typeFilter;
     const matchesSearch =
@@ -83,7 +67,6 @@ export default function TransactionsPage() {
     return matchesType && matchesSearch;
   });
 
-  // Calculate totals
   const balance = transactions.reduce((acc, t) => acc + t.amount, 0);
   const deposits = transactions
     .filter((t) => t.amount > 0)
@@ -104,7 +87,6 @@ export default function TransactionsPage() {
     );
   }
 
-  // Mobile transaction card component
   const MobileTransactionCard = ({
     transaction,
   }: {
@@ -172,7 +154,6 @@ export default function TransactionsPage() {
               <Sidebar />
             </div>
             <div className="col-lg-9">
-              {/* Balance Cards */}
               <div className="row g-4 mb-4">
                 <div className="col-md-6">
                   <div className="card shadow-sm h-100">
@@ -219,7 +200,6 @@ export default function TransactionsPage() {
                 </div>
               </div>
 
-              {/* Transactions Card */}
               <div className="card shadow-sm">
                 <div className="card-header bg-white d-flex flex-column flex-md-row justify-content-between align-items-md-center py-3 gap-2">
                   <h5 className="mb-0">Histórico de Transações</h5>
@@ -232,7 +212,6 @@ export default function TransactionsPage() {
                 </div>
 
                 <div className="card-body">
-                  {/* Filter Controls - Simplified for Mobile */}
                   <div className="row g-3 mb-3">
                     {!isMobile && (
                       <div className="col-md-8">
@@ -263,7 +242,6 @@ export default function TransactionsPage() {
                     </div>
                   </div>
 
-                  {/* Transactions Display - Table for Desktop, Cards for Mobile */}
                   {filteredTransactions.length === 0 ? (
                     <div className="text-center py-4">
                       <i
@@ -278,7 +256,6 @@ export default function TransactionsPage() {
                       </small>
                     </div>
                   ) : isMobile ? (
-                    // Mobile card view
                     <div className="transaction-cards">
                       {filteredTransactions.map((transaction) => (
                         <MobileTransactionCard
@@ -288,7 +265,6 @@ export default function TransactionsPage() {
                       ))}
                     </div>
                   ) : (
-                    // Desktop table view
                     <div className="table-responsive">
                       <table className="table table-hover align-middle mb-0">
                         <thead className="table-light">

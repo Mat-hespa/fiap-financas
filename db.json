@@ -9,28 +9,12 @@
   ],
   "transactions": [
     {
-      "id": "4",
-      "userId": 1,
-      "type": "deposit",
-      "description": "Transferência",
-      "amount": 50000,
-      "date": "2022-11-21T00:00:00.000Z"
-    },
-    {
-      "id": "ec46",
-      "userId": 1,
+      "id": "51e5",
+      "userId": "1",
       "type": "transfer",
-      "description": "teste 29",
-      "amount": -200,
-      "date": "2025-04-29T00:00:00.000Z"
-    },
-    {
-      "id": "e1aa",
-      "userId": 1,
-      "type": "transfer",
-      "description": "transferencia para ser editada",
-      "amount": -16000,
-      "date": "2025-04-29T00:00:00.000Z"
+      "description": "teste final",
+      "amount": -100,
+      "date": "2025-04-30T20:32:20.849Z"
     }
   ],
   "services": [

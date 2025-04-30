@@ -7,7 +7,7 @@ const API_URL = 'http://localhost:3001';
  */
 export async function getUser(id: number): Promise<User> {
   const response = await fetch(`${API_URL}/users/${id}`, {
-    next: { revalidate: 60 }, // Revalida a cada 60 segundos (Incremental Static Regeneration - ISR)
+    cache: 'no-store',
   });
   
   if (!response.ok) {
@@ -21,7 +21,7 @@ export async function getUser(id: number): Promise<User> {
  */
 export async function getTransactions(userId: number): Promise<Transaction[]> {
   const response = await fetch(`${API_URL}/transactions?userId=${userId}&_sort=date&_order=desc`, {
-    next: { revalidate: 60 }, // Revalida a cada 60 segundos
+    cache: 'no-store',
   });
   
   if (!response.ok) {
@@ -35,7 +35,7 @@ export async function getTransactions(userId: number): Promise<Transaction[]> {
  */
 export async function getServices(): Promise<Service[]> {
   const response = await fetch(`${API_URL}/services`, {
-    next: { revalidate: 60 }, // Revalida a cada 60 segundos
+    cache: 'no-store',
   });
   
   if (!response.ok) {
@@ -101,7 +101,7 @@ export async function deleteTransaction(id: string): Promise<void> {
  */
 export async function getTransactionById(id: string): Promise<Transaction | null> {
   const response = await fetch(`${API_URL}/transactions/${id}`, {
-    next: { revalidate: 60 }, // Revalida a cada 60 segundos (Incremental Static Regeneration - ISR)
+    cache: 'no-store',
   });
 
   if (!response.ok) {

@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Image from 'next/image';
@@ -10,7 +8,6 @@ export const Footer: React.FC = () => {
     <footer className="bg-dark text-white py-5">
       <Container className={styles.centeredContainer}>
         <Row className="gy-4 justify-content-center">
-          {/* Serviços */}
           <Col md={4} sm={6} xs={12} className={styles.footerCol}>
             <h5 className="mb-3 fw-semibold">Serviços</h5>
             <ul className="list-unstyled">
@@ -20,7 +17,6 @@ export const Footer: React.FC = () => {
             </ul>
           </Col>
           
-          {/* Contato */}
           <Col md={4} sm={6} xs={12} className={styles.footerCol}>
             <h5 className="mb-3 fw-semibold">Contato</h5>
             <ul className="list-unstyled">
@@ -30,7 +26,6 @@ export const Footer: React.FC = () => {
             </ul>
           </Col>
           
-          {/* Desenvolvido por */}
           <Col md={4} sm={12} className={styles.footerCol}>
             <div className={styles.thirdColumnContent}>
               <h5 className="mb-3 fw-semibold">Desenvolvido por Alura</h5>

@@ -38,27 +38,47 @@ export function NewTransactionForm({ user, defaultDate }: NewTransactionFormProp
     e.preventDefault();
     setIsSubmitting(true);
     setError("");
-
+  
     try {
       const amount = parseFloat(formData.amount);
-
+  
       if (isNaN(amount) || amount <= 0) {
         throw new Error("Por favor, insira um valor válido");
       }
-
-      // Adjust value based on transaction type
+  
+      // Ajustar o valor baseado no tipo de transação
       const adjustedAmount = formData.type === "deposit" ? amount : -amount;
-
+      
+      // Criar uma data usando a parte da data do formulário
+      const selectedDate = new Date(`${formData.date}T00:00:00`);
+      
+      // Obter a hora atual
+      const now = new Date();
+      
+      // Combinar a data selecionada com a hora atual
+      selectedDate.setHours(
+        now.getHours(),
+        now.getMinutes(),
+        now.getSeconds(),
+        now.getMilliseconds()
+      );
+      
+      // Para debug
+      console.log('Data selecionada no formulário:', formData.date);
+      console.log('Hora atual:', now.toTimeString());
+      console.log('Data combinada:', selectedDate.toISOString());
+  
       await addTransaction({
         userId: user.id,
         type: formData.type,
         description: formData.description,
         amount: adjustedAmount,
-        date: new Date(formData.date).toISOString(),
+        date: selectedDate.toISOString(),
       });
-
+  
       router.push("/transactions");
     } catch (err) {
+      console.error("Erro ao adicionar transação:", err);
       setError(
         err instanceof Error
           ? err.message
@@ -67,7 +87,7 @@ export function NewTransactionForm({ user, defaultDate }: NewTransactionFormProp
       setIsSubmitting(false);
     }
   };
-
+  
   return (
     <SidebarProvider>
       <>

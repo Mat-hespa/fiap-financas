@@ -1,6 +1,3 @@
-// app/page.tsx
-'use client';
-
 import { Header } from '@/components/layout/Header/index';
 import { Footer } from '@/components/layout/Footer/index';
 import { Hero } from '@/components/home/Hero/index';

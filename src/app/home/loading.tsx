@@ -1,4 +1,3 @@
-// app/(home)/home/loading.tsx
 import React from 'react';
 
 export default function HomeLoading() {

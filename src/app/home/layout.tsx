@@ -1,4 +1,3 @@
-// app/(home)/layout.tsx
 'use client';
 import '../globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';

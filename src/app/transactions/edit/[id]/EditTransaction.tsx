@@ -42,28 +42,52 @@ export function EditTransaction({
     e.preventDefault();
     setIsSubmitting(true);
     setError("");
-
+  
     try {
       const amount = parseFloat(formData.amount);
-
+  
       if (isNaN(amount) || amount <= 0) {
         throw new Error("Por favor, insira um valor válido");
       }
-
-      // Adjust the value based on transaction type
+  
       const adjustedAmount = formData.type === "deposit" ? amount : -amount;
-
+  
+      // Criar uma data usando a parte da data do formulário
+      const selectedDate = new Date(`${formData.date}T00:00:00`);
+      
+      // Obter a hora atual
+      const now = new Date();
+      
+      // Combinar a data selecionada com a hora atual (mesma lógica do NewTransactionForm)
+      selectedDate.setHours(
+        now.getHours(),
+        now.getMinutes(),
+        now.getSeconds(),
+        now.getMilliseconds()
+      );
+      
+      // Para debug
+      console.log('Data selecionada no formulário:', formData.date);
+      console.log('Hora atual:', now.toTimeString());
+      console.log('Data combinada:', selectedDate.toISOString());
+      
       const transactionId = transaction.id;
       const updateData = {
         type: formData.type,
         description: formData.description,
         amount: adjustedAmount,
-        date: new Date(formData.date).toISOString(),
+        date: selectedDate.toISOString(),
       };
       
+      // Log dos dados que serão enviados para a API
+      console.log('Dados para atualização:', updateData);
+      
+      // Verificar a implementação da função updateTransaction
       await updateTransaction(transactionId, updateData);
+      
       router.push("/transactions");
     } catch (err) {
+      console.error("Erro ao editar transação:", err);
       setError(
         err instanceof Error
           ? err.message

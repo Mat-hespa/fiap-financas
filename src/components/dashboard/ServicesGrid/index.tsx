@@ -1,4 +1,3 @@
-// /components/dashboard/ServicesGrid/index.tsx
 'use client';
 
 import React from 'react';

@@ -1,4 +1,3 @@
-// /components/layout/HeaderTransaction/index.tsx
 'use client';
 
 import React from 'react';
