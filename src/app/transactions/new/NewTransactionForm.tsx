@@ -1,31 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { updateTransaction } from "@/lib/api";
-import { Transaction, User } from "@/types";
+import { addTransaction } from "@/lib/api";
 import { useRouter } from "next/navigation";
 import { HeaderTransaction } from "@/components/layout/HeaderTransaction";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { SidebarProvider } from "@/contexts/SidebarContext";
+import { User } from "@/types";
+import Link from "next/link";
 
-type FormData = {
-  type: string;
-  description: string;
-  amount: string;
-  date: string;
+type NewTransactionFormProps = {
+  user: User;
+  defaultDate: string;
 };
 
-export function EditTransaction({ 
-  transaction, 
-  user, 
-  initialFormData 
-}: { 
-  transaction: Transaction; 
-  user: User;
-  initialFormData: FormData;
-}) {
+export function NewTransactionForm({ user, defaultDate }: NewTransactionFormProps) {
   const router = useRouter();
-  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [formData, setFormData] = useState({
+    type: "deposit",
+    description: "",
+    amount: "",
+    date: defaultDate,
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
@@ -50,24 +46,23 @@ export function EditTransaction({
         throw new Error("Por favor, insira um valor válido");
       }
 
-      // Adjust the value based on transaction type
+      // Adjust value based on transaction type
       const adjustedAmount = formData.type === "deposit" ? amount : -amount;
 
-      const transactionId = transaction.id;
-      const updateData = {
+      await addTransaction({
+        userId: user.id,
         type: formData.type,
         description: formData.description,
         amount: adjustedAmount,
         date: new Date(formData.date).toISOString(),
-      };
-      
-      await updateTransaction(transactionId, updateData);
+      });
+
       router.push("/transactions");
     } catch (err) {
       setError(
         err instanceof Error
           ? err.message
-          : "Ocorreu um erro ao editar a transação"
+          : "Ocorreu um erro ao adicionar a transação"
       );
       setIsSubmitting(false);
     }
@@ -84,18 +79,18 @@ export function EditTransaction({
             </div>
             <div className="col-lg-9">
               <div className="card shadow-sm">
-                <div className="card-header bg-white py-3">
-                  <h5 className="mb-0">Editar Transação</h5>
+                <div className="card-header bg-white d-flex flex-column flex-md-row justify-content-between align-items-md-center py-3 gap-2">
+                  <h5 className="mb-0">Nova Transação</h5>
                 </div>
 
                 <div className="card-body">
-                  <form onSubmit={handleSubmit}>
-                    {error && (
-                      <div className="alert alert-danger" role="alert">
-                        {error}
-                      </div>
-                    )}
+                  {error && (
+                    <div className="alert alert-danger" role="alert">
+                      {error}
+                    </div>
+                  )}
 
+                  <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                       <label htmlFor="type" className="form-label">
                         Tipo de Transação
@@ -119,11 +114,11 @@ export function EditTransaction({
                       </label>
                       <input
                         type="text"
+                        className="form-control"
                         id="description"
                         name="description"
                         value={formData.description}
                         onChange={handleChange}
-                        className="form-control"
                         required
                       />
                     </div>
@@ -134,41 +129,41 @@ export function EditTransaction({
                       </label>
                       <input
                         type="number"
+                        className="form-control"
                         id="amount"
                         name="amount"
                         value={formData.amount}
                         onChange={handleChange}
-                        className="form-control"
                         step="0.01"
                         min="0.01"
                         required
                       />
                       <div className="form-text">
-                        Para transferências, o valor será marcado como
-                        negativo automaticamente.
+                        Para transferências, o valor será marcado como negativo
+                        automaticamente.
                       </div>
                     </div>
 
-                    <div className="mb-3">
+                    <div className="mb-4">
                       <label htmlFor="date" className="form-label">
                         Data
                       </label>
                       <input
                         type="date"
+                        className="form-control"
                         id="date"
                         name="date"
                         value={formData.date}
                         onChange={handleChange}
-                        className="form-control"
                         required
                       />
                     </div>
 
-                    <div className="d-flex gap-2 mt-4">
+                    <div className="d-flex gap-2">
                       <button
                         type="submit"
-                        disabled={isSubmitting}
                         className="btn btn-success"
+                        disabled={isSubmitting}
                       >
                         {isSubmitting ? (
                           <>
@@ -180,17 +175,16 @@ export function EditTransaction({
                             Salvando...
                           </>
                         ) : (
-                          "Atualizar Transação"
+                          "Salvar Transação"
                         )}
                       </button>
 
-                      <button
-                        type="button"
-                        onClick={() => router.push("/transactions")}
+                      <Link
+                        href="/transactions"
                         className="btn btn-outline-secondary"
                       >
                         Cancelar
-                      </button>
+                      </Link>
                     </div>
                   </form>
                 </div>
