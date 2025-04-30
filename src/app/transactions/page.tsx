@@ -51,11 +51,11 @@ export default function TransactionsPage() {
     fetchData();
   }, []);
 
-  const handleDelete = async (id: number) => {
+  const handleDelete = async (id: string) => {
     if (confirm("Tem certeza que deseja excluir esta transação?")) {
       try {
         await deleteTransaction(id);
-        setTransactions(transactions.filter((t) => parseInt(t.id) !== id));
+        setTransactions(transactions.filter((t) => t.id !== id));
       } catch (error) {
         console.error("Error deleting transaction:", error);
       }
@@ -151,7 +151,7 @@ export default function TransactionsPage() {
               <i className="bi bi-pencil"></i>
             </Link>
             <button
-              onClick={() => handleDelete(parseInt(transaction.id))}
+              onClick={() => handleDelete(transaction.id)}
               className="btn btn-sm btn-outline-danger"
             >
               <i className="bi bi-trash"></i>
@@ -350,7 +350,7 @@ export default function TransactionsPage() {
                                   </Link>
                                   <button
                                     onClick={() =>
-                                      handleDelete(parseInt(transaction.id))
+                                      handleDelete(transaction.id)
                                     }
                                     className="btn btn-sm btn-outline-danger"
                                   >

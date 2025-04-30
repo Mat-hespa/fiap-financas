@@ -20,3 +20,7 @@ export interface Service {
   name: string;
   icon: string;
 }
+
+export interface PageParams {
+  id: string;
+}

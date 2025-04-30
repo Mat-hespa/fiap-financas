@@ -41,7 +41,7 @@ export async function addTransaction(transaction: Omit<Transaction, 'id'>): Prom
   return response.json();
 }
 
-export async function updateTransaction(id: number, transaction: Partial<Transaction>): Promise<Transaction> {
+export async function updateTransaction(id: string, transaction: Partial<Transaction>): Promise<Transaction> {
   const response = await fetch(`${API_URL}/transactions/${id}`, {
     method: 'PATCH',
     headers: {
@@ -60,7 +60,7 @@ export async function updateTransaction(id: number, transaction: Partial<Transac
   return result;
 }
 
-export async function deleteTransaction(id: number): Promise<void> {
+export async function deleteTransaction(id: string): Promise<void> {
   const response = await fetch(`${API_URL}/transactions/${id}`, {
     method: 'DELETE',
   });
